@@ -17,8 +17,13 @@ export class MenuComponent implements OnInit {
       },
       {
         label:'Departments',
-        icon: 'pi pi-fw pi-building',
+        icon: 'pi pi-fw pi-folder',
         url: '/#/departments'
+      },
+      {
+        label:'Employees',
+        icon: 'pi pi-fw pi-user',
+        url: '/#/employees'
       }
     ];
   }

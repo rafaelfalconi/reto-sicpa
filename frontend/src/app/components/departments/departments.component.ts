@@ -2,7 +2,6 @@ import {Component, OnInit} from '@angular/core';
 import {DepartmentModel} from "../../models/department.model";
 import {DepartmentService} from "../../services/department.service";
 import {MessageService} from "primeng/api";
-import {EnterpriseModel} from "../../models/enterprise.model";
 
 
 @Component({

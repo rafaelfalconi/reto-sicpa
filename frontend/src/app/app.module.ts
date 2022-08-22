@@ -22,6 +22,8 @@ import {DepartmentsComponent} from './components/departments/departments.compone
 import {DepartmentComponent} from './components/department/department.component';
 import {DropdownModule} from 'primeng/dropdown';
 import {InputTextareaModule} from 'primeng/inputtextarea';
+import { EmployeeComponent } from './components/employee/employee.component';
+import { EmployeesComponent } from './components/employees/employees.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -29,7 +31,9 @@ import {InputTextareaModule} from 'primeng/inputtextarea';
     MenuComponent,
     EnterpriseComponent,
     DepartmentsComponent,
-    DepartmentComponent
+    DepartmentComponent,
+    EmployeeComponent,
+    EmployeesComponent
   ],
   imports: [
     BrowserModule,
