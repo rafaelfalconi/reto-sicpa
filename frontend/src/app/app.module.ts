@@ -18,13 +18,15 @@ import {DialogModule} from 'primeng/dialog';
 import {EnterpriseComponent} from './components/enterprise/enterprise.component';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {ButtonModule} from 'primeng/button';
+import { DepartmentsComponent } from './components/departments/departments.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     EnterprisesComponent,
     MenuComponent,
-    EnterpriseComponent
+    EnterpriseComponent,
+    DepartmentsComponent
   ],
   imports: [
     BrowserModule,
