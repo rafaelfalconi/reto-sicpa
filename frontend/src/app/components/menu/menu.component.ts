@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import {Component, OnInit} from '@angular/core';
 import {MenuItem} from "primeng/api";
 
 @Component({
@@ -7,23 +7,24 @@ import {MenuItem} from "primeng/api";
   styleUrls: ['./menu.component.css']
 })
 export class MenuComponent implements OnInit {
-  public items:MenuItem[];
+  public items: MenuItem[];
+
   constructor() {
-    this.items=[
+    this.items = [
       {
-        label:'Enterprises',
+        label: 'Enterprises',
         icon: 'pi pi-fw pi-building',
-        routerLink:"['/']"
+        routerLink: "/"
       },
       {
-        label:'Departments',
+        label: 'Departments',
         icon: 'pi pi-fw pi-folder',
-        routerLink:"['/departments']"
+        routerLink: "/departments"
       },
       {
-        label:'Employees',
+        label: 'Employees',
         icon: 'pi pi-fw pi-user',
-        routerLink:"['/employees']"
+        routerLink: "/employees"
       }
     ];
   }
