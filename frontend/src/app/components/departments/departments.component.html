@@ -1,3 +1,4 @@
+<p-toast></p-toast>
 <div class="container-fluid">
   <p-table #dt1 [value]="departments" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" [(first)]="first"
            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
@@ -6,7 +7,7 @@
            locale="es">
     <ng-template pTemplate="caption">
       <div class="table-header">
-        Enterprises
+        Departments
         <span class="p-input-icon-left">
                 <i class="pi pi-search"></i>
                 <input pInputText type="text" (input)="dt1.filterGlobal($event.target.value, 'contains')"
@@ -74,7 +75,7 @@
         <td>{{department.modifiedBy}}</td>
         <td>{{department.modifiedDate}}</td>
         <td>
-          edit
+          <p-button (click)="showDialogEdit(department)" icon="pi pi-pencil" label="Edit"></p-button>
         </td>
       </tr>
     </ng-template>

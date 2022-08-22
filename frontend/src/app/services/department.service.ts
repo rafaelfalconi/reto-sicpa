@@ -19,4 +19,8 @@ export class DepartmentService {
   create(department: DepartmentModel): Observable<any> {
     return this.httpService.post(DepartmentService.END_POINT, department);
   }
+
+  edit(department: DepartmentModel): Observable<any> {
+    return this.httpService.put(DepartmentService.END_POINT + '/' + department.id, department);
+  }
 }

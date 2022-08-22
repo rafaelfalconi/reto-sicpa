@@ -40,5 +40,16 @@ export class DepartmentComponent implements OnInit {
     })
   }
 
+  edit(): void {
+    this.departmentService.edit(this.department).subscribe({
+      next: data => {
+        this.success.emit({message: data});
+      },
+      error: err => {
+        this.messageService.add({severity: 'error', summary: 'error', detail: err});
+      }
+    })
+  }
+
 
 }

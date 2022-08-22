@@ -2,6 +2,7 @@ import {Component, OnInit} from '@angular/core';
 import {DepartmentModel} from "../../models/department.model";
 import {DepartmentService} from "../../services/department.service";
 import {MessageService} from "primeng/api";
+import {EnterpriseModel} from "../../models/enterprise.model";
 
 
 @Component({
@@ -12,7 +13,7 @@ import {MessageService} from "primeng/api";
 })
 export class DepartmentsComponent implements OnInit {
   public departments: DepartmentModel[] = [];
-  public department = {status: true};
+  public department: DepartmentModel = {status: true};
   first = 0;
   display = false;
   title = 'Crate Department';
@@ -30,6 +31,13 @@ export class DepartmentsComponent implements OnInit {
   }
 
   showDialog(): void {
+    this.display = true;
+  }
+
+  showDialogEdit(department: DepartmentModel) {
+    this.department = department;
+    this.title = 'Edit department';
+    this.action = 'edit';
     this.display = true;
   }
 

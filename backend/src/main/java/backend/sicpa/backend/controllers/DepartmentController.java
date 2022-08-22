@@ -1,6 +1,7 @@
 package backend.sicpa.backend.controllers;
 
 import backend.sicpa.backend.dtos.DepartmentDto;
+import backend.sicpa.backend.dtos.EnterpriseDto;
 import backend.sicpa.backend.entities.Department;
 import backend.sicpa.backend.services.DepartmentService;
 import lombok.RequiredArgsConstructor;
@@ -23,8 +24,14 @@ public class DepartmentController {
     }
 
     @PostMapping()
-    public ResponseEntity<String> createDepartment(@RequestBody DepartmentDto departmentDto){
-        this.departmentService.createDepartment(departmentDto);
+    public ResponseEntity<String> createDepartment(@RequestBody DepartmentDto departmentDto) {
+        this.departmentService.create(departmentDto);
         return ResponseEntity.status(HttpStatus.ACCEPTED).body("\"department created\"");
+    }
+
+    @PutMapping("/{id}")
+    public ResponseEntity<String> editEnterprises(@RequestBody DepartmentDto departmentDto, @PathVariable int id) {
+        this.departmentService.edit(departmentDto, id);
+        return ResponseEntity.status(HttpStatus.ACCEPTED).body("\"dapartment edited\"");
     }
 }

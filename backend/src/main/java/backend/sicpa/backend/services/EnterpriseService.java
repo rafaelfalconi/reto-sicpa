@@ -41,13 +41,13 @@ public class EnterpriseService {
 
     public Enterprise getEnterpriseById(int id) {
         Optional<Enterprise> enterpriseOptional = this.enterpriseRepository.findById(id);
-        if (enterpriseOptional.isEmpty()) throw new NotFoundException("\"enterprise not exist \"");
+        if (enterpriseOptional.isEmpty()) throw new NotFoundException("\"enterprise does not exist \"");
         return enterpriseOptional.get();
     }
 
     public void edit(EnterpriseDto enterpriseDto, int id) {
         Optional<Enterprise> enterpriseOptional = this.enterpriseRepository.findById(id);
-        if (enterpriseOptional.isEmpty()) throw new NotFoundException("\"enterprise not exist \"");
+        if (enterpriseOptional.isEmpty()) throw new NotFoundException("\"enterprise does not exist \"");
         Enterprise enterprise = enterpriseOptional.get();
         LocalDateTime now = LocalDateTime.now();
         enterprise.setName(enterpriseDto.getName());
