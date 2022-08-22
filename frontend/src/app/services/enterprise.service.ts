@@ -19,4 +19,8 @@ export class EnterpriseService {
   create(enterPrise: EnterpriseModel): Observable<any> {
     return this.httpService.post(EnterpriseService.END_POINT, enterPrise);
   }
+
+  edit(enterPrise: EnterpriseModel): Observable<any> {
+    return this.httpService.put(EnterpriseService.END_POINT + "/" + enterPrise.id, enterPrise);
+  }
 }

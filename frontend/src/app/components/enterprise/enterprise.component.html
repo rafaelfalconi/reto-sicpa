@@ -1,29 +1,27 @@
 <p-toast></p-toast>
-<div class="container">
-  <div class="card" style="width: 18rem;">
-    <div class="card-body">
-      <div>
-        <input type="text" pInputText [(ngModel)]="enterprise.name" placeholder="name">
-      </div>
-      <div>
-        <input type="text" pInputText [(ngModel)]="enterprise.phone" placeholder="phone">
-      </div>
-      <div>
-        <input type="text" pInputText [(ngModel)]="enterprise.address" placeholder="address">
-      </div>
-      <div>
-        <input type="text" pInputText [(ngModel)]="enterprise.name" placeholder="Nombre">
-      </div>
-      <div *ngFor="let statusValue of statusValues" class="p-field-checkbox">
-        <p-radioButton [inputId]="statusValue.name" name="status" [value]="statusValue.value" [(ngModel)]="status"
-        ></p-radioButton>
-        <label [for]="statusValue.name">{{statusValue.name}}</label>
-      </div>
-      <div>
-        <button pButton pRipple type="button" class="p-button-raised p-button-info" label="Crear"
-                (click)="create()">
-        </button>
-      </div>
-    </div>
-  </div>
+<div class="input">
+  <input type="text" pInputText [(ngModel)]="enterprise.name" placeholder="name">
+</div>
+<div class="input">
+  <input type="text" pInputText [(ngModel)]="enterprise.phone" placeholder="phone">
+</div>
+<div class="input">
+  <input type="text" pInputText [(ngModel)]="enterprise.address" placeholder="address">
+</div>
+<div>
+  Status:
+</div>
+<div *ngFor="let statusValue of statusValues" class="p-field-checkbox">
+  <p-radioButton [inputId]="statusValue.name" name="status" [value]="statusValue.value" [(ngModel)]="enterprise.status"
+  ></p-radioButton>
+  <label [for]="statusValue.name">{{statusValue.name}}</label>
+</div>
+<div class="input">
+  <button pButton pRipple type="button" class="p-button-raised p-button-success" label="create"
+          [hidden]="action !== 'create'"
+          (click)="create()">
+  </button>
+  <button pButton pRipple type="button" class="p-button-raised p-button-info" label="Edit" [hidden]="action !== 'edit'"
+          (click)="edit()">
+  </button>
 </div>

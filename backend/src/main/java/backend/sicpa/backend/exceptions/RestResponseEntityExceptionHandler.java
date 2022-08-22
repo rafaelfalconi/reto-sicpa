@@ -12,4 +12,9 @@ public class RestResponseEntityExceptionHandler {
     public ResponseEntity<String> incorrectData(final IncorrectDataException exception) {
         return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(exception.getMessage());
     }
+
+    @ExceptionHandler(NotFoundException.class)
+    public ResponseEntity<String> notFound(final NotFoundException exception) {
+        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(exception.getMessage());
+    }
 }

@@ -1,4 +1,4 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
 import {EnterpriseModel} from "../../models/enterprise.model";
 import {EnterpriseService} from "../../services/enterprise.service";
 import {MessageService} from 'primeng/api';
@@ -10,27 +10,40 @@ import {MessageService} from 'primeng/api';
   providers: [MessageService]
 })
 export class EnterpriseComponent implements OnInit {
-  enterprise: EnterpriseModel = {};
+  @Input() enterprise: EnterpriseModel = {};
+  @Input() action: string = '';
+  @Output() success = new EventEmitter<{ message: string }>();
   statusValues: any[] = [{name: 'enable', value: true}, {name: 'disable', value: false}];
-  status: boolean = false;
+
 
   constructor(private enterpriseService: EnterpriseService, private messageService: MessageService) {
+
   }
 
   ngOnInit(): void {
+    console.log(this.action);
   }
 
   create(): void {
-    this.enterprise.status = this.status;
     this.enterpriseService.create(this.enterprise).subscribe({
       next: data => {
-        this.messageService.add({severity: 'success', summary: 'success', detail: data});
+        this.success.emit({message: data});
       },
       error: err => {
         this.messageService.add({severity: 'error', summary: 'error', detail: err});
       }
     })
+  }
 
+  edit(): void {
+    this.enterpriseService.edit(this.enterprise).subscribe({
+      next: data => {
+        this.success.emit({message: data});
+      },
+      error: err => {
+        this.messageService.add({severity: 'error', summary: 'error', detail: err});
+      }
+    })
   }
 
 }

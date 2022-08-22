@@ -14,6 +14,7 @@ import {MenubarModule} from 'primeng/menubar';
 import {TableModule} from 'primeng/table';
 import {ToastModule} from 'primeng/toast';
 import {InputTextModule} from 'primeng/inputtext';
+import {DialogModule} from 'primeng/dialog';
 import {EnterpriseComponent} from './components/enterprise/enterprise.component';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {ButtonModule} from 'primeng/button';
@@ -37,9 +38,11 @@ import {ButtonModule} from 'primeng/button';
     ToastModule,
     InputTextModule,
     RadioButtonModule,
-    ButtonModule
+    ButtonModule,
+    DialogModule
   ],
-  providers: [],
+  providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
 })
-export class AppModule { }
+export class AppModule {
+}
