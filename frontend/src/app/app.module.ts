@@ -39,10 +39,7 @@ import {ButtonModule} from 'primeng/button';
     RadioButtonModule,
     ButtonModule
   ],
-  providers: [
-    {provide: LocationStrategy, useClass: HashLocationStrategy}
-  ],
+  providers: [],
   bootstrap: [AppComponent]
 })
-export class AppModule {
-}
+export class AppModule { }
