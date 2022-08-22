@@ -15,4 +15,8 @@ export class EnterpriseService {
   readAll(): Observable<EnterpriseModel[]> {
     return this.httpService.get(EnterpriseService.END_POINT);
   }
+
+  create(enterPrise: EnterpriseModel): Observable<any> {
+    return this.httpService.post(EnterpriseService.END_POINT, enterPrise);
+  }
 }
