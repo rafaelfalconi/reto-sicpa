@@ -15,4 +15,17 @@ export class EmployeeService {
   readAll(): Observable<EmployeesModel[]> {
     return this.httpService.get(EmployeeService.END_POINT);
   }
+
+  create(employeesModel: EmployeesModel): Observable<any> {
+    return this.httpService.post(EmployeeService.END_POINT, employeesModel);
+  }
+
+  readById(id: number | undefined): Observable<EmployeesModel> {
+    return this.httpService.get(EmployeeService.END_POINT + "/" + id);
+  }
+
+  edit(employeesModel: EmployeesModel): Observable<any> {
+    return this.httpService.put(EmployeeService.END_POINT + "/" + employeesModel.id, employeesModel);
+  }
+
 }

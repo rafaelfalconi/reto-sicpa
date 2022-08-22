@@ -3,7 +3,8 @@
   <p-table #dt1 [value]="employees" [paginator]="true" [rows]="10" [showCurrentPageReport]="true" [(first)]="first"
            currentPageReportTemplate="Showing {first} to {last} of {totalRecords} entries"
            [rowsPerPageOptions]="[10,25,50]"
-           [globalFilterFields]="['name','createdBy','createdDate','modifiedBy','modifiedDate','status','surname','position','email']"
+           [globalFilterFields]="['name','createdBy','createdDate','modifiedBy',
+           'modifiedDate','status','surname','position','email','age']"
            locale="es">
     <ng-template pTemplate="caption">
       <div class="table-header">
@@ -15,7 +16,7 @@
                        class="p-inputtext p-component p-element"/>
            </span>
         <span class="p-input-icon-left">
-            <p-button icon="pi pi-plus" label="Create Employee"></p-button>
+            <p-button icon="pi pi-plus" (click)="showDialog()" label="Create Employee"></p-button>
         </span>
 
       </div>
@@ -39,8 +40,12 @@
           <p-sortIcon field="status"></p-sortIcon>
         </th>
         <th pSortableColumn="email">
-          email
+          Email
           <p-sortIcon field="email"></p-sortIcon>
+        </th>
+        <th pSortableColumn="age">
+          Age
+          <p-sortIcon field="age"></p-sortIcon>
         </th>
         <th pSortableColumn="createdBy">
           Created By
@@ -70,16 +75,18 @@
         <td>{{employee.position}}</td>
         <td>{{employee.status ? 'enable' : 'disable'}}</td>
         <td>{{employee.email}}</td>
+        <td>{{employee.age}}</td>
         <td>{{employee.createdBy}}</td>
         <td>{{employee.createdDate}}</td>
         <td>{{employee.modifiedBy}}</td>
         <td>{{employee.modifiedDate}}</td>
         <td>
-          <p-button icon="pi pi-pencil" label="Edit"></p-button>
+          <p-button (click)="showDialogEdit(employee.id)" icon="pi pi-pencil" label="Edit"></p-button>
         </td>
       </tr>
     </ng-template>
   </p-table>
-  <p-dialog header="{{title}}" [(visible)]="display">
+  <p-dialog header="{{title}}" [(visible)]="display" [maximizable]="true" [resizable]="true">
+    <app-employee [action]="action" (success)="createOrEmployees($event)" [employee]="employee"></app-employee>
   </p-dialog>
 </div>

@@ -38,7 +38,7 @@ public class Employee {
 
     private int age;
 
-    private String email,position,surname;
+    private String email, position, surname, name;
 
     @Override
     public boolean equals(Object o) {

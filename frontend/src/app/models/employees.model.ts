@@ -1,3 +1,5 @@
+import {DepartmentModel} from "./department.model";
+
 export interface EmployeesModel {
   id?: number;
   createdBy?: string;
@@ -7,4 +9,6 @@ export interface EmployeesModel {
   name?: string;
   surname?: string;
   position?: string;
+  age?:number;
+  department?:DepartmentModel;
 }

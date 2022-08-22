@@ -1,7 +1,12 @@
 package backend.sicpa.backend.repositories;
 
 import backend.sicpa.backend.entities.DepartmentEmployee;
+import backend.sicpa.backend.entities.Employee;
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface DepartmentEmployeeRepository extends JpaRepository<DepartmentEmployee,Integer> {
+import java.util.Optional;
+
+public interface DepartmentEmployeeRepository extends JpaRepository<DepartmentEmployee, Integer> {
+
+    Optional<DepartmentEmployee> findFirstByEmployee(Employee employee);
 }

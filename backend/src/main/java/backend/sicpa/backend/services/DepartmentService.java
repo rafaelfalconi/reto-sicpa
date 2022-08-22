@@ -6,7 +6,6 @@ import backend.sicpa.backend.entities.Enterprise;
 import backend.sicpa.backend.exceptions.IncorrectDataException;
 import backend.sicpa.backend.exceptions.NotFoundException;
 import backend.sicpa.backend.repositories.DepartmentRepository;
-import backend.sicpa.backend.repositories.EnterpriseRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -59,5 +58,11 @@ public class DepartmentService {
         } catch (NullPointerException exception) {
             throw new IncorrectDataException("incorrect data send");
         }
+    }
+
+    public Department getDeparmentById(int id) {
+        Optional<Department> departmentOptional = this.departmentRepository.findById(id);
+        if (departmentOptional.isEmpty()) throw new NotFoundException("\"department does not exist \"");
+        return departmentOptional.get();
     }
 }

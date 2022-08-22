@@ -1,1 +1,41 @@
-<p>employee works!</p>
+<p-toast></p-toast>
+<div class="input">
+  <input type="text" pInputText [(ngModel)]="employee.name" placeholder="name">
+</div>
+<div class="input">
+  <input type="text" pInputText [(ngModel)]="employee.surname" placeholder="surname">
+</div>
+<div class="input">
+  <input type="text" pInputText [(ngModel)]="employee.position" placeholder="position">
+</div>
+<div class="input">
+  <p-dropdown [options]="departments" [(ngModel)]="employee.department" placeholder="Select a department"
+              optionLabel="name"
+              [showClear]="true"></p-dropdown>
+</div>
+<div class="input">
+
+  <p-inputNumber inputId="integeronly" [(ngModel)]="employee.age" placeholder="age"></p-inputNumber>
+</div>
+<div class="input">
+  <input type="text" pInputText [(ngModel)]="employee.email" placeholder="email">
+</div>
+<div>
+  Status:
+</div>
+<div *ngFor="let statusValue of statusValues" class="p-field-checkbox">
+  <p-radioButton [inputId]="statusValue.name" name="status" [value]="statusValue.value" [(ngModel)]="employee.status"
+  ></p-radioButton>
+  <label [for]="statusValue.name">{{statusValue.name}}</label>
+</div>
+
+<div class="input">
+  <button pButton pRipple type="button" class="p-button-raised p-button-success" label="create"
+          [hidden]="action !== 'create'" (click)="create()"
+  >
+  </button>
+  <button pButton pRipple type="button" class="p-button-raised p-button-info" label="Edit"
+          [hidden]="action !== 'edit'" (click)="edit()"
+  >
+  </button>
+</div>

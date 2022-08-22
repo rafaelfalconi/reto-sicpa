@@ -80,7 +80,7 @@
       </tr>
     </ng-template>
   </p-table>
-  <p-dialog header="{{title}}" [(visible)]="display">
+  <p-dialog header="{{title}}" [(visible)]="display" >
     <app-department [department]="department" [action]="action" (success)="createOrDepartments($event)">
     </app-department>
   </p-dialog>

@@ -22,8 +22,11 @@ import {DepartmentsComponent} from './components/departments/departments.compone
 import {DepartmentComponent} from './components/department/department.component';
 import {DropdownModule} from 'primeng/dropdown';
 import {InputTextareaModule} from 'primeng/inputtextarea';
-import { EmployeeComponent } from './components/employee/employee.component';
-import { EmployeesComponent } from './components/employees/employees.component';
+import {EmployeeComponent} from './components/employee/employee.component';
+import {EmployeesComponent} from './components/employees/employees.component';
+import {InputNumberModule} from 'primeng/inputnumber';
+
+
 @NgModule({
   declarations: [
     AppComponent,
@@ -50,7 +53,8 @@ import { EmployeesComponent } from './components/employees/employees.component';
     ButtonModule,
     DialogModule,
     DropdownModule,
-    InputTextareaModule
+    InputTextareaModule,
+    InputNumberModule
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]
