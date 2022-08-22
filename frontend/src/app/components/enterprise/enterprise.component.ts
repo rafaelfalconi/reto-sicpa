@@ -23,6 +23,9 @@ export class EnterpriseComponent implements OnInit {
   create(): void {
     this.enterprise.status = this.status;
     this.enterpriseService.create(this.enterprise).subscribe({
+      next: data => {
+        this.messageService.add({severity: 'success', summary: 'success', detail: data});
+      },
       error: err => {
         this.messageService.add({severity: 'error', summary: 'error', detail: err});
       }
