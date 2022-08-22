@@ -15,4 +15,8 @@ export class DepartmentService {
   readAll(): Observable<DepartmentModel[]> {
     return this.httpService.get(DepartmentService.END_POINT);
   }
+
+  create(department: DepartmentModel): Observable<any> {
+    return this.httpService.post(DepartmentService.END_POINT, department);
+  }
 }

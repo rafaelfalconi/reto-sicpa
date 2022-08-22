@@ -18,15 +18,18 @@ import {DialogModule} from 'primeng/dialog';
 import {EnterpriseComponent} from './components/enterprise/enterprise.component';
 import {RadioButtonModule} from 'primeng/radiobutton';
 import {ButtonModule} from 'primeng/button';
-import { DepartmentsComponent } from './components/departments/departments.component';
-
+import {DepartmentsComponent} from './components/departments/departments.component';
+import {DepartmentComponent} from './components/department/department.component';
+import {DropdownModule} from 'primeng/dropdown';
+import {InputTextareaModule} from 'primeng/inputtextarea';
 @NgModule({
   declarations: [
     AppComponent,
     EnterprisesComponent,
     MenuComponent,
     EnterpriseComponent,
-    DepartmentsComponent
+    DepartmentsComponent,
+    DepartmentComponent
   ],
   imports: [
     BrowserModule,
@@ -41,7 +44,9 @@ import { DepartmentsComponent } from './components/departments/departments.compo
     InputTextModule,
     RadioButtonModule,
     ButtonModule,
-    DialogModule
+    DialogModule,
+    DropdownModule,
+    InputTextareaModule
   ],
   providers: [{provide: LocationStrategy, useClass: HashLocationStrategy}],
   bootstrap: [AppComponent]

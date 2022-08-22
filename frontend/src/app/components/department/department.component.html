@@ -1,0 +1,36 @@
+<p-toast></p-toast>
+<div class="input">
+  <input type="text" pInputText [(ngModel)]="department.name" placeholder="name">
+</div>
+<div class="input">
+  <input type="text" pInputText [(ngModel)]="department.phone" placeholder="phone">
+</div>
+<div>
+  Description:
+</div>
+<div class="input">
+  <textarea [(ngModel)]="department.description"></textarea>
+</div>
+
+<div class="input">
+  <p-dropdown [options]="enterprises" [(ngModel)]="department.enterprise" placeholder="Select a enterprise"
+              optionLabel="name"
+              [showClear]="true"></p-dropdown>
+</div>
+<div>
+  Status:
+</div>
+<div *ngFor="let statusValue of statusValues" class="p-field-checkbox">
+  <p-radioButton [inputId]="statusValue.name" name="status" [value]="statusValue.value" [(ngModel)]="department.status"
+  ></p-radioButton>
+  <label [for]="statusValue.name">{{statusValue.name}}</label>
+</div>
+<div class="input">
+  <button pButton pRipple type="button" class="p-button-raised p-button-success" label="create"
+          [hidden]="action !== 'create'" (click)="create()"
+  >
+  </button>
+  <button pButton pRipple type="button" class="p-button-raised p-button-info" label="Edit" [hidden]="action !== 'edit'"
+  >
+  </button>
+</div>

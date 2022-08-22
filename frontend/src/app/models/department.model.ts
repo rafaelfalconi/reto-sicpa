@@ -5,7 +5,7 @@ export interface DepartmentModel {
   createdBy?: string;
   createdDate?: string;
   status?: boolean;
-  address?: string;
+  description?: string;
   name?: string;
   phone?: string;
   enterprise?: EnterpriseModel;

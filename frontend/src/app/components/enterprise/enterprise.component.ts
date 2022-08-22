@@ -21,7 +21,6 @@ export class EnterpriseComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    console.log(this.action);
   }
 
   create(): void {

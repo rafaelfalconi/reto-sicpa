@@ -7,3 +7,7 @@
   background: #22C55E;
   border: 1px solid #22C55E;
 }
+.input {
+  padding-top: 0.5rem;
+  padding-bottom: 0.5rem;
+}
